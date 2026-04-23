@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aurorus Hub</title>
+<style>
+body {
+  margin: 0;
+  background-color: lightslategrey;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Aurorus Hub</h1>
+<h2>Your Smart Homepage</h2>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 40px;
+  width: min(90vw, 1000px);
+}
+
+.icon {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="icon-grid">
+
+  <img class="icon"
+       src="1.png"
+       data-off="1.png"
+       data-on="2.png"
+       data-sound="_finger_crack.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="3.png"
+       data-off="3.png"
+       data-on="4.png"
+       data-sound="211165__sdlx__ice-tray-twisted.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="5.png"
+       data-off="5.png"
+       data-on="6.png"
+       data-sound="840284__thearbuzikyt__mobile-phone-notification-sound.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="7.png"
+       data-off="7.png"
+       data-on="8.png"
+       data-sound="159158__daenn__din-ding.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="9.png"
+       data-off="9.png"
+       data-on="10.png"
+       data-sound="microwave-dial-ding-1.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="11.png"
+       data-off="11.png"
+       data-on="12.png"
+       data-sound="348224__tbrook__switch-light-06.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="13.png"
+       data-off="13.png"
+       data-on="14.png"
+       data-sound="788643__philip_berger__light-switch-on.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="15.png"
+       data-off="15.png"
+       data-on="16.png"
+       data-sound="flush.wav"
+       alt="icon">
+
+  <img class="icon"
+       src="17.png"
+       data-off="17.png"
+       data-on="18.png"
+       data-sound="523425__andersmmg__ding-2.wav"
+       alt="icon">
+
+</div>
+
+<script>
+const icons = document.querySelectorAll('.icon');
+
+icons.forEach(icon => {
+  const sound = new Audio(icon.dataset.sound);
+  let isOn = false;
+
+  icon.addEventListener('click', () => {
+
+    if (!isOn) {
+      // turning ON
+      icon.src = icon.dataset.on;
+
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+      
+      isOn = true;
+
+    } else {
+      // turning OFF
+      icon.src = icon.dataset.off;
+      isOn = false;
+    }
+
+  });
+});
+</script>
+
+</body>
+</html>
